@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const UserSchema = new Schema({
   username: {
@@ -16,3 +17,5 @@ const UserSchema = new Schema({
   //   thoughts: [_id values referencing the thought model],
   //   friends: [_id values referencing the user model]
 });
+
+model.exports = User;
