@@ -12,9 +12,12 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: true,
       unique: true,
-      match: [, "Please enter a valid email address!"],
+      required: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Please enter a valid email address!",
+      ],
     },
     thoughts: [
       {
@@ -44,7 +47,7 @@ UserSchema.virtual("friendCount").get(function () {
 });
 
 // create USER model w userSchema
-const User = model("User", userSchema);
+const User = model("User", UserSchema);
 
 // export model
-model.exports = User;
+module.exports = User;

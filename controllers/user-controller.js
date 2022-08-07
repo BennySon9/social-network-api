@@ -1,5 +1,4 @@
 const { User } = require("../models");
-const { populate } = require("../models/User");
 
 const userController = {
   // get ALL users
@@ -14,7 +13,7 @@ const userController = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => {
         console.log(err);
-        res.status(400).json(err);
+        res.status(400);
       });
   },
 
